@@ -239,6 +239,7 @@ ParabolicSAR(table, args...; kwargs...) = apply_ti(ParabolicSAR, table, args...;
 SFX(table, args...; kwargs...) = apply_ti(SFX, table, args...; kwargs...)
 TTM(table, args...; kwargs...) = apply_ti(TTM, table, args...; kwargs...)
 PivotsHL(table, args...; kwargs...) = apply_ti(PivotsHL, table, args...; kwargs...)
+GannHilo(table, args...; kwargs...) = apply_ti(GannHilo, table, args...; kwargs...)
 
 # OTHERS_INDICATORS
 STC(table, args...; kwargs...) = apply_ti(STC, table, args...; kwargs...)

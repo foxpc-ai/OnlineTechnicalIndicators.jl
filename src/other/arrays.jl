@@ -141,5 +141,8 @@ function PivotsHL(x::AbstractArray, args...; kwargs...)
     return value(ind.output_values)
 end
 
+GannHilo(x::AbstractArray, args...; kwargs...) = apply_func(x, OnlineTechnicalIndicators.GannHilo, args...; kwargs...)
+
+
 # Others indicators
 STC(x::AbstractArray, args...; kwargs...) = apply_func(x, OnlineTechnicalIndicators.STC, args...; kwargs...)
