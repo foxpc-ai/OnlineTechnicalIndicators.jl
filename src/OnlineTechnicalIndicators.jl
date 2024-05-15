@@ -297,6 +297,8 @@ ismultiinput(::Type{ParabolicSAR}) = true
 ismultiinput(::Type{SFX}) = true
 ismultiinput(::Type{TTM}) = true
 ismultiinput(::Type{PivotsHL}) = true
+ismultiinput(::Type{GannHilo}) = true
+
 # Other
 ismultiinput(::Type{STC}) = false
 
