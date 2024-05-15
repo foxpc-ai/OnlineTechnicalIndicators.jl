@@ -44,8 +44,8 @@ end
 
 function _calculate_new_value(ind::GannHilo)
     if length(ind.input_values) >= ind.period
-        high = maximum(ind.input_values)
-        low = minimum(ind.input_values)
+        high = max(cdl.high for cdl in value(ind.input_values))
+        low = min(cdl.low for cdl in value(ind.input_values))
         fit!(ind.sma_high, high)
         fit!(ind.sma_low, low)
         return (value(ind.sma_high), value(ind.sma_low))
