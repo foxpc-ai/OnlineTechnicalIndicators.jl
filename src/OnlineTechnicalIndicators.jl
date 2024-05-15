@@ -60,6 +60,7 @@ MIMO_INDICATORS = [
     "SFX",
     "TTM",
     "PivotsHL",
+    "GannHilo",
 ]
 # More complex indicators (for example STC is SISO but uses MIMO indicator such as Stoch with input_modifier)
 OTHERS_INDICATORS = ["STC"]

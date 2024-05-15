@@ -294,4 +294,20 @@ using OnlineTechnicalIndicators: PivotsHLVal
         @test ind.output_values[end].type == HLType.HIGH
     end
 
+    @testset "GannHilo" begin
+        ind = GannHiLo{OHLCV{Missing,Float64,Float64}}(
+            period = 14,
+        )
+        @test nobs(ind) == 0
+        ind = StatLag(ind, 14)
+        fit!(ind, V_OHLCV)
+        @test nobs(ind) == length(V_OHLCV)
+        @test isapprox(value(ind.lag[end-2][1]), 8.742857; atol = ATOL)
+        @test isapprox(value(ind.lag[end-2][2]), 8.032142; atol = ATOL)
+        @test isapprox(value(ind.lag[end-1][1]), 9.478571; atol = ATOL)
+        @test isapprox(value(ind.lag[end-1][2]), 8.827142; atol = ATOL)
+        @test isapprox(value(ind)[1], 9.831428; atol = ATOL)
+        @test isapprox(value(ind)[2], 9.205000; atol = ATOL)
+    end
+
 end
