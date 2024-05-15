@@ -30,7 +30,7 @@ mutable struct GannHilo{Tval,IN,T2} <: MovingAverageIndicator{Tval}
         sma_high = SMA{T2}(period = period)
         sma_low = SMA{T2}(period = period)
 
-        indicator = new{Tval,false,T2}(
+        new{Tval,false,T2}(
             initialize_indicator_common_fields()...,
             period,
             sma_high,
@@ -39,11 +39,6 @@ mutable struct GannHilo{Tval,IN,T2} <: MovingAverageIndicator{Tval}
             input_filter,
             input_values,
         )
-        
-        
-        indicator.value = _calculate_new_value(indicator)
-        
-        return indicator
     end
 end
 
