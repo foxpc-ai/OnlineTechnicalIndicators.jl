@@ -295,7 +295,7 @@ using OnlineTechnicalIndicators: PivotsHLVal
     end
 
     @testset "GannHilo" begin
-        ind = GannHiLo{OHLCV{Missing,Float64,Float64}}(
+        ind = GannHilo{OHLCV{Missing,Float64,Float64}}(
             period = 14,
         )
         @test nobs(ind) == 0

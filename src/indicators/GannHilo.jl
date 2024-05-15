@@ -1,11 +1,11 @@
 const GANN_HILO_PERIOD = 14
 
 """
-    GannHiLo{T}(; period=GANN_HILO_PERIOD, input_filter = always_true, input_modifier = identity, input_modifier_return_type = T)
+    GannHilo{T}(; period=GANN_HILO_PERIOD, input_filter = always_true, input_modifier = identity, input_modifier_return_type = T)
 
-The `GannHiLo` type implements a Gann HiLo Activator indicator.
+The `GannHilo` type implements a Gann HiLo Activator indicator.
 """
-mutable struct GannHiLo{Tval,IN,T2} <: MovingAverageIndicator{Tval}
+mutable struct GannHilo{Tval,IN,T2} <: MovingAverageIndicator{Tval}
     value::Union{Missing,T2}
     n::Int
     output_listeners::Series
@@ -19,7 +19,7 @@ mutable struct GannHiLo{Tval,IN,T2} <: MovingAverageIndicator{Tval}
     input_filter::Function
     input_values::CircBuff
 
-    function GannHiLo{Tval}(;
+    function GannHilo{Tval}(;
         period = GANN_HILO_PERIOD,
         input_filter = always_true,
         input_modifier = identity,
@@ -42,7 +42,7 @@ mutable struct GannHiLo{Tval,IN,T2} <: MovingAverageIndicator{Tval}
     end
 end
 
-function _calculate_new_value(ind::GannHiLo)
+function _calculate_new_value(ind::GannHilo)
     if length(ind.input_values) >= ind.period
         high = maximum(ind.input_values)
         low = minimum(ind.input_values)
